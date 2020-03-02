@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Card} from 'reactstrap';
 import axios from 'axios';
+import Comments from './Comments' ;
+import { BrowserRouter as Router , Route, Link, IndexRoute} from 'react-router-dom';
+
 
 export class PostItem extends React.Component {
 	
 	state ={
 		users : [],
-		nsme : ""
+		name : ""
 	};
 	componentDidMount() {
     axios
@@ -25,14 +28,18 @@ export class PostItem extends React.Component {
 
   	});
 		return (
-			
+			<Router>
 		  <div class="card border-primary mb-3" style={{width: '40rem'}}>
 			  <div class="card-header">{this.state.name}</div>
-			  <div class="card-body">
-			    <h4 class="card-title">{title}</h4>
-			    <p class="card-text">{body}</p>
+			    <div class="card-body">
+			     <h4 class="card-title">{title}</h4>
+			    <p class="card-text">{body}</p>			
+			    <Link to={'/comments/'+ id} >Comments</Link>
+			    <Route path="/comments/:id" component={Comments} exact />
+
 		  </div>
-		  </div>			
+		  </div>	
+		  </Router>		
 		);
 	}
 }

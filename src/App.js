@@ -1,9 +1,6 @@
 import React from 'react';
 import Posts from './component/Posts' ;
 import axios from 'axios';
-import {
-  Navbar, NavbarBrand, Nav, NavItem, NavLink
-} from 'reactstrap';
 
 class App extends React.Component {
 
