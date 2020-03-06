@@ -9,7 +9,6 @@ export class Posts extends React.Component {
 				<PostItem key={post.id} post ={post} />
 					))
 			}
-			
 	}
 
 Posts.propTypes = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import Posts from './component/Posts' ;
 import axios from 'axios';
+import AddPost from './component/AddPost';
 
 class App extends React.Component {
 
@@ -14,12 +15,25 @@ class App extends React.Component {
       .then(res => this.setState({ posts: res.data }));
   }
 
+  addpost =  (body, title) =>{
+
+   axios.post('https://jsonplaceholder.typicode.com/posts',{
+   body,
+   title,
+   userId: 1
+   })
+   .then(res => this.setState({ posts: 
+    [...this.state.posts, res.data]}));
+  };
+
   render() {
     return (
-      <div>
-       
-        <Posts  posts = {this.state.posts}/>
-        
+      <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+       <AddPost addpost={this.addpost}/>
+        <Posts  posts = {this.state.posts} />
+
+      </div>  
       </div>
     );
   }

@@ -29,21 +29,18 @@ export class PostItem extends React.Component {
   	});
 		return (
 			<Router>
-		  <div class="card border-primary mb-3" style={{width: '40rem'}}>
+		  <div class="card border-primary mb-3" style={{width: '40rem' , margin: 'auto'}}>
 			  <div class="card-header">{this.state.name}</div>
 			    <div class="card-body">
 			     <h4 class="card-title">{title}</h4>
 			    <p class="card-text">{body}</p>			
 			    <Link to={'/comments/'+ id} >Comments</Link>
 			    <Route path="/comments/:id" component={Comments} exact />
-
 		  </div>
 		  </div>	
 		  </Router>		
 		);
 	}
 }
-
-
 
 export default PostItem;
