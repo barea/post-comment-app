@@ -26,12 +26,20 @@ class App extends React.Component {
     [...this.state.posts, res.data]}));
   };
 
+  delPost = id => {
+    axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`).then(res =>
+      this.setState({
+        posts: [...this.state.posts.filter(post => post.id !== id)]
+      })
+    );
+  };
+
   render() {
     return (
       <div class="jumbotron jumbotron-fluid">
       <div class="container">
        <AddPost addpost={this.addpost}/>
-        <Posts  posts = {this.state.posts} />
+        <Posts  posts = {this.state.posts} delPost={this.delPost}/>
 
       </div>  
       </div>

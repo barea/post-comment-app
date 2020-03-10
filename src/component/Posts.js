@@ -6,7 +6,7 @@ export class Posts extends React.Component {
 	render() {
 		
 		return this.props.posts.map((post) => (
-				<PostItem key={post.id} post ={post} />
+				<PostItem key={post.id} post ={post} delPost={this.props.delPost} />
 					))
 			}
 	}

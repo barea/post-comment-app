@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup } from 'reactstrap';
 import {Card} from 'reactstrap';
-
+	
 
 class AddPost extends React.Component {
 	state = {

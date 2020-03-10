@@ -30,7 +30,9 @@ export class PostItem extends React.Component {
 		return (
 			<Router>
 		  <div class="card border-primary mb-3" style={{width: '40rem' , margin: 'auto'}}>
-			  <div class="card-header">{this.state.name}</div>
+			  <div class="card-header">{this.state.name}
+			  <button type="button" onClick={this.props.delPost.bind(this,id)} class="btn btn-outline-danger" style={{float: 'right'}}>Delete</button>
+			  </div>
 			    <div class="card-body">
 			     <h4 class="card-title">{title}</h4>
 			    <p class="card-text">{body}</p>			
