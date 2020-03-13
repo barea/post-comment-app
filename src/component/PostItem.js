@@ -3,15 +3,20 @@ import PropTypes from 'prop-types';
 import {Card} from 'reactstrap';
 import axios from 'axios';
 import Comments from './Comments' ;
-import { BrowserRouter as Router , Route, Link, IndexRoute} from 'react-router-dom';
-
+import { BrowserRouter as Router , Route, Link, IndexRoute, Switch} from 'react-router-dom';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 export class PostItem extends React.Component {
 	
 	state ={
 		users : [],
-		name : ""
+		name : "",
+		modal: false
 	};
+	toggle = () =>{
+		this.setState({modal : !this.state.modal})
+	}
+
 	componentDidMount() {
     axios
       .get('https://jsonplaceholder.typicode.com/users')
@@ -35,14 +40,23 @@ export class PostItem extends React.Component {
 			  </div>
 			    <div class="card-body">
 			     <h4 class="card-title">{title}</h4>
-			    <p class="card-text">{body}</p>			
-			    <Link to={'/comments/'+ id} >Comments</Link>
-			    <Route path="/comments/:id" component={Comments} exact />
+			    <p class="card-text">{body}</p>	
+			   
+			    <a href="#" onClick={this.toggle}>Comments</a>
+     			 <Modal isOpen={this.state.modal} toggle={this.toggle} >
+       			 <ModalHeader toggle={this.toggle}>Comments</ModalHeader>
+        		<ModalBody>
+        		<Comments postId={id} />
+        		</ModalBody>
+        		      </Modal>
+			    
+			    		  
 		  </div>
 		  </div>	
 		  </Router>		
 		);
 	}
 }
+
 
 export default PostItem;

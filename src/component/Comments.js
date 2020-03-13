@@ -15,7 +15,7 @@ export class Comments extends React.Component {
     axios
       .get('https://jsonplaceholder.typicode.com/comments', {
       	params:{
-      		postId: this.props.match.params.id
+      		postId: this.props.postId
       	}
       })
       .then(res => this.setState({ comments: res.data }));		

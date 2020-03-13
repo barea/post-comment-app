@@ -11,7 +11,7 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get('https://jsonplaceholder.typicode.com/posts')
+      .get('https://jsonplaceholder.typicode.com/posts?_limit=5')
       .then(res => this.setState({ posts: res.data }));
   }
 
@@ -40,7 +40,6 @@ class App extends React.Component {
       <div class="container">
        <AddPost addpost={this.addpost}/>
         <Posts  posts = {this.state.posts} delPost={this.delPost}/>
-
       </div>  
       </div>
     );
