@@ -1,4 +1,4 @@
-# Post Comment:
+# Post-Comment-App:
 React app for create post and comments, user can:
 * Read existing posts.
 * Add new posts.
