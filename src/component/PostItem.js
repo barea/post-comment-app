@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Card} from 'reactstrap';
 import axios from 'axios';
 import Comments from './Comments' ;
+import AddComment from './AddComment'
 import { BrowserRouter as Router , Route, Link, IndexRoute, Switch} from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
